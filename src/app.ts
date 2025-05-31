@@ -1,6 +1,6 @@
 import express from "express";
-import mongoose from "mongoose";
-import dotenv from "dotenv";
+// import mongoose from "mongoose";
+// import dotenv from "dotenv";
 
 import taskDefinitionRoutes from "./routes/taskDefinitionRoutes";
 import checklistRoutes from "./routes/checklistRoutes";
@@ -9,7 +9,7 @@ import cors from "cors";
 // import { fakeAuthMiddleware } from "./middleware/fakeAuthMiddleware";
 import userRoutes from "./routes/userRoutes";
 require('dotenv').config();
-dotenv.config();
+// dotenv.config();
 
 const app = express();
 app.use(express.json());

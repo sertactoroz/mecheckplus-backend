@@ -6,19 +6,21 @@ import taskDefinitionRoutes from "./routes/taskDefinitionRoutes";
 import checklistRoutes from "./routes/checklistRoutes";
 import dayRecordRoutes from "./routes/dayRecordRoutes";
 import cors from "cors";
-import { fakeAuthMiddleware } from "./middleware/fakeAuthMiddleware";
-
-
+// import { fakeAuthMiddleware } from "./middleware/fakeAuthMiddleware";
+import userRoutes from "./routes/userRoutes";
+require('dotenv').config();
 dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(fakeAuthMiddleware);
+
+// app.use(fakeAuthMiddleware);
 
 app.use(cors());
 app.use("/api/task-definitions", taskDefinitionRoutes);
 app.use("/api/checklists", checklistRoutes);
 app.use("/api/day-records", dayRecordRoutes);
+app.use("/api/users", userRoutes);
 
 export default app;
 

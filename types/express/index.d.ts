@@ -1,4 +1,3 @@
-// types/express/index.d.ts
 import { ObjectId } from "mongoose";
 
 declare global {

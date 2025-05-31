@@ -11,4 +11,4 @@ const router = express.Router();
 // router.post("/", createOrUpdateDayRecord);
 router.get("/", getDayRecord);
 
-export default router; // ✅ burada router export ediliyor
+export default router; 

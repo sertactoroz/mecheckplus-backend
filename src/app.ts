@@ -8,20 +8,27 @@ import dayRecordRoutes from "./routes/dayRecordRoutes";
 import cors from "cors";
 // import { fakeAuthMiddleware } from "./middleware/fakeAuthMiddleware";
 import userRoutes from "./routes/userRoutes";
+import userChecklistActionsRoutes from "./routes/userChecklistActions";
+import { mockAuthMiddleware } from "./middleware/mockAuthMiddleware";
+
+
 require('dotenv').config();
 // dotenv.config();
 
 const app = express();
 app.use(express.json());
 
-// app.use(fakeAuthMiddleware);
+
+// ⬇️ Tüm route'lar için sahte kullanıcı middleware'i uygula
+app.use(mockAuthMiddleware);
 
 app.use(cors());
-app.use("/api/task-definitions", taskDefinitionRoutes);
-app.use("/api/checklists", checklistRoutes);
-app.use("/api/day-records", dayRecordRoutes);
-app.use("/api/users", userRoutes);
-
+app.use("/task-definitions", taskDefinitionRoutes);
+app.use("/task-definitions/popular", taskDefinitionRoutes);
+app.use("/checklists", checklistRoutes);
+app.use("/day-records", dayRecordRoutes);
+app.use("/users", userRoutes);
+app.use("/user-checklist-actions", userChecklistActionsRoutes);
 export default app;
 
 

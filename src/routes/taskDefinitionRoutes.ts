@@ -1,12 +1,13 @@
+
 import express from "express";
 import {
-  getPublicTasks,
+  getPopularTasks,
   createTaskDefinition,
 } from "../controllers/taskDefinitionController";
 
 const router = express.Router();
 
-router.get("/", getPublicTasks);
-// router.post("/", createTaskDefinition); // auth kontrolü ileride eklenecek
+router.get("/popular", getPopularTasks);
+router.post("/", createTaskDefinition); 
 
 export default router;

@@ -1,10 +1,15 @@
 import { Request, Response } from "express";
 import { TaskDefinition } from "../models/TaskDefinition";
 
-// Tüm public görevleri getir
-export const getPublicTasks = async (req: Request, res: Response) => {
-  const tasks = await TaskDefinition.find({ isPublic: true });
-  res.json(tasks);
+
+// Popüler (isPublic=true) task'ları getir
+export const getPopularTasks = async (req: Request, res: Response) => {
+  try {
+    const popularTasks = await TaskDefinition.find({ isPublic: true });
+    res.json(popularTasks);
+  } catch (err) {
+    res.status(500).json({ error: "Görevler alınamadı" });
+  }
 };
 
 // Yeni görev oluştur
